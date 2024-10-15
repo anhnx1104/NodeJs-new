@@ -1,0 +1,19 @@
+{
+  "name": "be-zero",
+  "version": "1.0.0",
+  "description": "day la tai khoa hoc be new",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/server.js"
+  },
+  "author": "AnhNX",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "3.1.8",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
