@@ -14,7 +14,14 @@ const getUserById = async (userId) => {
   return userEdit;
 };
 
+const updateUserById = async (email, name, city, userId) => {
+  const [result] = await poolPromise.query(
+    `UPDATE User SET name = ? ,email = ?, city = ? where id = ?`,
+    [email, name, city, userId]
+  );
+};
 module.exports = {
   getAllUsers,
   getUserById,
+  updateUserById,
 };

@@ -1,5 +1,9 @@
 const { connection, poolPromise } = require("../config/database");
-const { getAllUsers, getUserById } = require("../services/CRUDService");
+const {
+  getAllUsers,
+  getUserById,
+  updateUserById,
+} = require("../services/CRUDService");
 
 const getHomePage = async (req, res) => {
   let results = await getAllUsers();
@@ -16,6 +20,7 @@ const updateUser = async (req, res) => {
   let user = await getUserById(userId);
   res.render("edit.ejs", { userEdit: user });
 };
+
 const postCreateUser = async (req, res) => {
   try {
     let { name, email, city } = req.body;
@@ -36,9 +41,25 @@ const postCreateUser = async (req, res) => {
     return res.status(500).send("Error inserting user");
   }
 };
+
+const postUpdateUser = async (req, res) => {
+  try {
+    let { name, email, city, userId } = req.body;
+    await updateUserById(name, email, city, userId);
+    // Sử dụng promise để gọi query
+
+    // return res.send("postUpdateUser success");
+    res.redirect("/home");
+  } catch (error) {
+    console.error("Error inserting user:", error);
+    return res.status(500).send("Error inserting user");
+  }
+};
+
 module.exports = {
   getHomePage,
   postCreateUser,
   getCreatePage,
   updateUser,
+  postUpdateUser,
 };

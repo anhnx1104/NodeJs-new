@@ -17,7 +17,18 @@
 
     <!-- Form Container -->
     <div class="form-container">
-      <form action="/create-user" method="POST">
+      <form action="/update-user" method="POST">
+        <div class="d-none">
+          <label for="name">ID:</label>
+          <input
+            type="text"
+            id="userId"
+            name="userId"
+            placeholder="Enter your userId"
+            required
+            value="<%= userEdit.id %>"
+          />
+        </div>
         <label for="name">Name:</label>
         <input
           type="text"
@@ -47,7 +58,7 @@
           value="<%= userEdit.city %>"
         />
 
-        <button type="submit">Submit</button>
+        <button type="submit">Update</button>
       </form>
     </div>
   </body>
