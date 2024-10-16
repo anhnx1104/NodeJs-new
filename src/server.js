@@ -9,6 +9,12 @@ const webRouter = require("./routes/web");
 //config static files
 configViewEngine(app);
 
+//config req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//config webRouter
+
 app.use("/v1", webRouter);
 
 app.listen(port, () => {
