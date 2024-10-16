@@ -47,6 +47,7 @@
     <div class="topnav">
       <a class="active" href="/home">HomePage</a>
       <a class="#news" href="/create">Create</a>
+      <a class="#contact" href="/update">update</a>
     </div>
     <!-- Form Container -->
     <table>
@@ -54,8 +55,7 @@
         Danh sách người dùng
       </caption>
       <thead>
-        <!-- <%=JSON.stringify(listUser) %> -->
-        <%= JSON.stringify(listUser) %>
+        <!-- <%= JSON.stringify(listUser) %> -->
 
         <tr>
           <th>ID</th>
@@ -66,46 +66,18 @@
         </tr>
       </thead>
       <tbody>
+        <% listUser.forEach(user => { %>
         <tr>
-          <td>Nguyễn Văn A</td>
-          <td>nguyenvana@example.com</td>
-          <td>Hà Nội</td>
-          <td>Hà Nội</td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.address %></td>
+          <td><%= user.city %></td>
           <td>
-            <button>Edit</button>
+            <a href="/update/<%= user.id %>">Edit</a>
             <button>Delete</button>
           </td>
         </tr>
-        <tr>
-          <td>Trần Thị B</td>
-          <td>tranthib@example.com</td>
-          <td>Hà Nội</td>
-          <td>TP.HCM</td>
-          <td>
-            <button>Edit</button>
-            <button>Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Phạm Văn C</td>
-          <td>phamvanc@example.com</td>
-          <td>Hà Nội</td>
-          <td>Đà Nẵng</td>
-          <td>
-            <button>Edit</button>
-            <button>Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Phạm Văn C</td>
-          <td>phamvanc@example.com</td>
-          <td>Hà Nội</td>
-          <td>Đà Nẵng</td>
-          <td>
-            <button>Edit</button>
-            <button>Delete</button>
-          </td>
-        </tr>
+        <% }); %>
       </tbody>
     </table>
   </body>

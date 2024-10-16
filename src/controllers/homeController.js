@@ -1,5 +1,5 @@
 const { connection, poolPromise } = require("../config/database");
-const { getAllUsers } = require("../services/CRUDService");
+const { getAllUsers, getUserById } = require("../services/CRUDService");
 
 const getHomePage = async (req, res) => {
   let results = await getAllUsers();
@@ -8,6 +8,13 @@ const getHomePage = async (req, res) => {
 
 const getCreatePage = (req, res) => {
   res.render("create.ejs");
+};
+
+const updateUser = async (req, res) => {
+  const userId = req.params.id;
+
+  let user = await getUserById(userId);
+  res.render("edit.ejs", { userEdit: user });
 };
 const postCreateUser = async (req, res) => {
   try {
@@ -33,4 +40,5 @@ module.exports = {
   getHomePage,
   postCreateUser,
   getCreatePage,
+  updateUser,
 };
