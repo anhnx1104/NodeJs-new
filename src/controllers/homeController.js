@@ -4,17 +4,31 @@ const getHomePage = (req, res) => {
   return res.render("homepage.ejs");
 };
 
-const getSamplePage = (req, res) => {
-  res.render("sample.ejs");
+const getCreatePage = (req, res) => {
+  res.render("create.ejs");
 };
+const postCreateUser = async (req, res) => {
+  try {
+    let { name, email, city } = req.body;
 
-const postCreateUser = (req, res) => {
-  const { name, email, city } = req.body;
-  console.log("postCreateUser", req.body);
-  res.send("123");
+    // Sử dụng promise để gọi query
+    const [result] = await connection
+      .promise()
+      .query(`INSERT INTO User (email, name, city) VALUES (?, ?, ?)`, [
+        email,
+        name,
+        city,
+      ]);
+
+    console.log("result>>", result);
+    return res.send("success");
+  } catch (error) {
+    console.error("Error inserting user:", error);
+    return res.status(500).send("Error inserting user");
+  }
 };
 module.exports = {
   getHomePage,
-  getSamplePage,
   postCreateUser,
+  getCreatePage,
 };

@@ -5,47 +5,82 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+    }
 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    caption {
+      margin: 10px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  </style>
   <body>
     <!-- Navbar -->
     <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
+      <a class="active" href="/home">HomePage</a>
+      <a class="#news" href="/create">Create</a>
     </div>
-    <h1>Form add user</h1>
     <!-- Form Container -->
-    <div class="form-container">
-      <form action="/v1/create-user" method="POST">
-        <label for="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter your name"
-          required
-        />
-
-        <label for="email">Email:</label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          placeholder="Enter your email"
-        />
-
-        <label for="city">City:</label>
-        <input
-          type="text"
-          id="city"
-          name="city"
-          placeholder="Enter your city"
-          required
-        />
-
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <table>
+      <caption>
+        Danh sách người dùng
+      </caption>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Name</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nguyễn Văn A</td>
+          <td>nguyenvana@example.com</td>
+          <td>Hà Nội</td>
+          <td>Hà Nội</td>
+        </tr>
+        <tr>
+          <td>Trần Thị B</td>
+          <td>tranthib@example.com</td>
+          <td>Hà Nội</td>
+          <td>TP.HCM</td>
+        </tr>
+        <tr>
+          <td>Phạm Văn C</td>
+          <td>phamvanc@example.com</td>
+          <td>Hà Nội</td>
+          <td>Đà Nẵng</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //config webRouter
 
-app.use("/v1", webRouter);
+app.use("/", webRouter);
 
 app.listen(port, () => {
   console.log(`Start  on port: ${port}`);
