@@ -54,11 +54,15 @@
         Danh sách người dùng
       </caption>
       <thead>
+        <!-- <%=JSON.stringify(listUser) %> -->
+        <%= JSON.stringify(listUser) %>
+
         <tr>
           <th>ID</th>
           <th>Email</th>
           <th>Name</th>
           <th>City</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -67,18 +71,40 @@
           <td>nguyenvana@example.com</td>
           <td>Hà Nội</td>
           <td>Hà Nội</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
         </tr>
         <tr>
           <td>Trần Thị B</td>
           <td>tranthib@example.com</td>
           <td>Hà Nội</td>
           <td>TP.HCM</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
         </tr>
         <tr>
           <td>Phạm Văn C</td>
           <td>phamvanc@example.com</td>
           <td>Hà Nội</td>
           <td>Đà Nẵng</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Phạm Văn C</td>
+          <td>phamvanc@example.com</td>
+          <td>Hà Nội</td>
+          <td>Đà Nẵng</td>
+          <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>

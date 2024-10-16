@@ -1,7 +1,9 @@
-const connection = require("../config/database");
+const { connection, poolPromise } = require("../config/database");
+const { getAllUsers } = require("../services/CRUDService");
 
-const getHomePage = (req, res) => {
-  return res.render("homepage.ejs");
+const getHomePage = async (req, res) => {
+  let results = await getAllUsers();
+  return res.render("homepage.ejs", { listUser: results });
 };
 
 const getCreatePage = (req, res) => {
