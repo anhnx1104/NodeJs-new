@@ -20,8 +20,14 @@ const updateUserById = async (email, name, city, userId) => {
     [email, name, city, userId]
   );
 };
+
+const handleaDeleteUser = async (userId) => {
+  await poolPromise.query(`DELETE FROM User WHERE id =?`, [userId]);
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
   updateUserById,
+  handleaDeleteUser,
 };

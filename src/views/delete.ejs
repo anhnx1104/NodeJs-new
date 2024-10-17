@@ -1,0 +1,55 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div class="topnav">
+      <a href="/home">Delete</a>
+      <a class="active" href="/create">Delete</a>
+    </div>
+    <h1>Form Delete user</h1>
+    <%= JSON.stringify(userEdit) %>
+
+    <!-- Form Container -->
+    <div class="form-container">
+      <form action="/delete-user" method="POST">
+        <div class="d-none">
+          <label for="name">ID:</label>
+          <input
+            type="text"
+            id="userId"
+            name="userId"
+            placeholder="Enter your userId"
+            required
+            value="<%= userEdit.id %>"
+          />
+        </div>
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+          value="<%= userEdit.name %>"
+        />
+
+        <label for="email">Email:</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          value="<%= userEdit.email %>"
+        />
+
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  </body>
+</html>
